@@ -8,6 +8,8 @@ import DashboardLayout from "../layouts/dashboard";
 import { DEFAULT_PATH } from "../config";
 import LoadingScreen from "../components/LoadingScreen";
 
+
+
 const Loadable = (Component) => (props) => {
   return (
     <Suspense fallback={<LoadingScreen />}>
@@ -15,6 +17,8 @@ const Loadable = (Component) => (props) => {
     </Suspense>
   );
 };
+
+
 
 export default function Router() {
   return useRoutes([
@@ -34,6 +38,7 @@ export default function Router() {
 }
 
 const GeneralApp = Loadable(
-  lazy(() => import("../pages/dashboard/GeneralApp")),
+  lazy(() => import("../pages/dashboard/GeneralApp.js")),
 );
+
 const Page404 = Loadable(lazy(() => import("../pages/Page404")));
